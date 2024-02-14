@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.app{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header{
+    height: 60px;
+    background-color: pink;
+}
+
+.columns{
+    display: flex;
+    flex-grow: 1;
+}
+
+.left{
+    width: 100px;
+    background-color: orange;
+}
+
+.mid{
+    background-color: yellow;
+    flex-grow: 1;
+}
+
+.right{
+    width: 100px;
+    background-color: green;
+}
+
+.footer{
+    height: 100px;
+    background-color: gray;
+}
