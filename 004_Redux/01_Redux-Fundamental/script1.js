@@ -1,14 +1,14 @@
-import { productsList } from "./productsList";
+// import { productsList } from "./productsList";
 import { combineReducers, createStore } from "redux";
 import productsReducer from "./productsReducer";
-import cartReducer from "./cartReducer";
-import wishListReducer from "./wishListReducer";
+import cartReducer, { addCartItem, decreaseCartItemQuantity, increaseCartItemQuantity, removeCartItem } from "./cartReducer";
+import wishListReducer, { addWishListItem, removeWishListItem } from "./wishListReducer";
 
-const initialState = {
-    products : productsList,
-    cartItems: [],
-    wishList: []
-}
+// const initialState = {
+//     products : productsList,
+//     cartItems: [],
+//     wishList: []
+// }
 
 const reducer = combineReducers({
     products: productsReducer,
@@ -16,13 +16,13 @@ const reducer = combineReducers({
     wishList: wishListReducer
 })
 
-const ADD_CART_ITEM = 'cart/addItem'
-const REMOVE_CART_ITEM = 'cart/removeItem'
-const INCREASE_ITEM_QUANTITY = 'cart/increaseItemQuantity'
-const DECREASE_ITEM_QUANTITY = 'cart/decreaseItemQuantity'
+// const ADD_CART_ITEM = 'cart/addItem'
+// const REMOVE_CART_ITEM = 'cart/removeItem'
+// const INCREASE_ITEM_QUANTITY = 'cart/increaseItemQuantity'
+// const DECREASE_ITEM_QUANTITY = 'cart/decreaseItemQuantity'
 
-const WISHLIST_ADD_ITEM = 'wishList/addItem'
-const WISHLIST_REMOVE_ITEM = 'wishList/removeItem'
+// const WISHLIST_ADD_ITEM = 'wishList/addItem'
+// const WISHLIST_REMOVE_ITEM = 'wishList/removeItem'
 
 // function reducer(state = initialState, action){
 //     switch(action.type){
@@ -61,18 +61,18 @@ const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.())
 
 // console.log(store)
 
-store.dispatch({type: ADD_CART_ITEM, payload: {productId: 1, quantity: 1}})
-store.dispatch({type: ADD_CART_ITEM, payload: {productId: 3, quantity: 1}})
-store.dispatch({type: ADD_CART_ITEM, payload: {productId: 4, quantity: 1}})
-store.dispatch({type: ADD_CART_ITEM, payload: {productId: 7, quantity: 1}})
-store.dispatch({type: REMOVE_CART_ITEM, payload: {productId: 1}})
-store.dispatch({type: INCREASE_ITEM_QUANTITY, payload: {productId: 4}})
-store.dispatch({type: DECREASE_ITEM_QUANTITY, payload: {productId: 7}})
-store.dispatch({type: WISHLIST_ADD_ITEM, payload:{productId: 7, quantity: 1}})
-store.dispatch({type: WISHLIST_ADD_ITEM, payload:{productId: 2, quantity: 1}})
-store.dispatch({type: WISHLIST_ADD_ITEM, payload:{productId: 3, quantity: 1}})
-store.dispatch({type: WISHLIST_ADD_ITEM, payload:{productId: 4, quantity: 1}})
-store.dispatch({type: WISHLIST_REMOVE_ITEM, payload: {productId: 7}})
+store.dispatch(addCartItem(1))
+store.dispatch(addCartItem(3))
+store.dispatch(addCartItem(4))
+store.dispatch(addCartItem(7))
+store.dispatch(removeCartItem(1))
+store.dispatch(increaseCartItemQuantity(4))
+store.dispatch(decreaseCartItemQuantity(7))
+store.dispatch(addWishListItem(7))
+store.dispatch(addWishListItem(2))
+store.dispatch(addWishListItem(3))
+store.dispatch(addWishListItem(4))
+store.dispatch(removeWishListItem(7))
 
 console.log(store.getState())
 
