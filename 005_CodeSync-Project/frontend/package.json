@@ -10,7 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.2",
+    "@uiw/codemirror-theme-dracula": "^4.21.25",
+    "@uiw/react-codemirror": "^4.21.25",
     "react": "^18.2.0",
+    "react-avatar": "^5.0.3",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-router-dom": "^6.22.3",
