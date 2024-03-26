@@ -4,10 +4,10 @@ import {dracula} from '@uiw/codemirror-theme-dracula'
 
 import { useCallback, useState } from 'react';
 
-const Editor = () => {
-    const [code, setCode] = useState('')
+const Editor = ({socketRef, roomId, code, setCode}) => {
 
     const onChange = useCallback((val, viewUpdate) => {
+        socketRef.current.emit('typing', {val, roomId})
         setCode(val);
       }, []);
    
