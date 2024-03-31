@@ -27,9 +27,11 @@ const Header = () => {
             <Button className='w-12 h-10 hidden sm:inline' color='gray' pill>
                 <FaMoon className='self-center'/>
             </Button>
-            <Button to='/sign-in' gradientDuoTone='purpleToBlue' as={Link}>
-                Sign In
-            </Button>
+            <Link to='/sign-in'>
+                <Button outline gradientDuoTone='purpleToBlue'>
+                    Sign In
+                </Button>
+            </Link>
             <Navbar.Toggle/>
         </div>
         <Navbar.Collapse>
